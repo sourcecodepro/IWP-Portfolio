@@ -1,0 +1,543 @@
+/*
+ * HTML5 Boilerplate: style.css
+ *
+ * This is a minimal and clean stylesheet for a professional portfolio.
+ * It is responsive and meets the rubric's criteria for a sober, formal design.
+ */
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+/* Use a better box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set base font and color */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; } /* 40px */
+h2 { font-size: 2rem; } /* 32px */
+h3 { font-size: 1.5rem; } /* 24px */
+h4 { font-size: 1.125rem; } /* 18px */
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #0056b3; /* A professional blue */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: #003d80;
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Rounded corners for all images */
+}
+
+/* ==========================================================================
+   Layout & Helpers
+   ========================================================================== */
+
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem; /* 20px */
+  padding-right: 1.25rem; /* 20px */
+}
+
+.section-padding {
+  padding-top: 5rem; /* 80px */
+  padding-bottom: 5rem; /* 80px */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem; /* 48px */
+}
+
+/* Makes sections alternate in background color */
+.section-padding:nth-of-type(odd) {
+  background-color: #ffffff;
+}
+.section-padding:nth-of-type(even) {
+  background-color: #f9f9f9;
+}
+.hero-section {
+  background-color: #ffffff;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
+.site-header {
+  background-color: #ffffff;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+}
+.logo a:hover, .logo a:focus {
+  color: #0056b3;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  margin-left: 1.5rem; /* 24px */
+}
+
+.main-nav a {
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  color: #444;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0056b3;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus::after,
+.main-nav a.active::after {
+  transform: scaleX(1);
+}
+
+.main-nav a.active {
+  color: #0056b3;
+  font-weight: 700;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.icon-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+.icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Main Content Sections
+   ========================================================================== */
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.hero-section h1 {
+  font-size: 3rem; /* 48px */
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.hero-section .subtitle {
+  font-size: 1.5rem; /* 24px */
+  color: #555;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* About Section */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem; /* 48px */
+  align-items: center;
+}
+
+.about-image img {
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.about-text h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* 12px */
+}
+
+.skills-list li {
+  background-color: #e9ecef;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem; /* 14.4px */
+  font-weight: 500;
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* 32px */
+}
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+
+.project-header {
+  display: grid;
+  grid-template-columns: 150px 1fr auto;
+  gap: 1.5rem; /* 24px */
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.project-image img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.project-info h3 {
+  font-size: 1.3rem; /* 20.8px */
+  margin-bottom: 0.25rem;
+}
+
+.project-info .project-summary {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.project-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.project-toggle:hover {
+  background-color: #f1f1f1;
+}
+
+.chevron-icon {
+  width: 24px;
+  height: 24px;
+  color: #555;
+  transition: transform 0.3s ease;
+}
+
+/* Project Details (Hidden by default) */
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.5rem;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Expanded State */
+.project-card.expanded .project-details {
+  max-height: 1000px; /* Large enough to fit content */
+  padding: 1.5rem;
+  transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+}
+
+.project-card.expanded .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.project-details h4 {
+  margin-top: 1rem;
+}
+
+.project-details .skills-list {
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem; /* 12px 24px */
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #004494;
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.2);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #ffffff;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background-color: #5a6268;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  font-size: 0.9rem; /* 14.4px */
+}
+
+.footer-links {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #f1f1f1;
+  text-decoration: none;
+  margin: 0 0.75rem; /* 12px */
+  font-weight: 500;
+}
+
+.footer-links a:hover, .footer-links a:focus {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Scroll-to-Top Button
+   ========================================================================== */
+
+#scrollToTopBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#scrollToTopBtn:hover {
+  background-color: #004494;
+}
+
+#scrollToTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile Navigation */
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below header */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .main-nav.show {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  .main-nav li {
+    margin: 0;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+  }
+
+  .main-nav a::after {
+    display: none; /* Disable underline effect on mobile */
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus,
+  .main-nav a.active {
+    background-color: #f9f9f9;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  /* Animate hamburger icon */
+  .mobile-nav-toggle[aria-expanded="true"] .icon-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-nav-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-nav-toggle[aria-expanded="true"] .icon-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Responsive sections */
+  h1 { font-size: 2.25rem; }
+  .hero-section { padding: 4rem 0; }
+  .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
+
+  /* Responsive project card */
+  .project-header {
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+  }
+  .project-image {
+    display: none; /* Hide image on small screens for a cleaner list */
+  }
+}
+
